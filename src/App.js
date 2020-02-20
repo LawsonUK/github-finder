@@ -14,7 +14,7 @@ const App = () => {
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
   const [loading, setLoading] = useState(false)
-  const [alert, setAlertState] = useState(null)
+  const [alert, setAlert] = useState(null)
 
   const searchUsers = async text => {
     setLoading(true)
@@ -51,9 +51,9 @@ const App = () => {
     setLoading(false)
   }
 
-  const setAlert = (msg, type) => {
-    setAlertState({ alert: { msg, type } })
-    setTimeout(() => setAlertState({ alert: null }), 3000)
+  const showAlert = (msg, type) => {
+    setAlert({ msg, type })
+    setTimeout(() => setAlert(null), 3000)
   }
 
   return (
@@ -72,7 +72,7 @@ const App = () => {
                     searchUsers={searchUsers}
                     clearUsers={clearUsers}
                     showClear={users.length > 0 ? true : false}
-                    setAlert={setAlert}
+                    showAlert={showAlert}
                   />
                   <Users loading={loading} users={users} />
                 </Fragment>
