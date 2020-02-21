@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
+import GithubState from './context/github/GithubState'
 import NavBar from './components/layout/NavBar'
 import Users from './components/users/Users'
 import Search from './components/users/Search'
@@ -57,6 +58,7 @@ const App = () => {
   }
 
   return (
+    <GithubState>
     <Router>
       <div className="App">
         <NavBar />
@@ -97,6 +99,7 @@ const App = () => {
         </div>
       </div>
     </Router>
+    </GithubState>
   )
 }
 
